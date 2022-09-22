@@ -74,9 +74,10 @@
                             <classpathPrefix>lib/</classpathPrefix>
                             <mainClass>com.example.demopackage.DemoPackageApplication</mainClass>
                         </manifest>
-                        <!--                        <manifestEntries>-->
-                        <!--                            <Class-Path>${project.basedir}/lib</Class-Path>-->
-                        <!--                        </manifestEntries>-->
+                        <manifestEntries>
+                            <!--            这个位置要加本地system级别的jar                -->
+                            <Class-Path>./lib/</Class-Path>
+                        </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
