@@ -13,9 +13,14 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>demo-package</name>
     <description>demo-package</description>
+
     <properties>
         <java.version>1.8</java.version>
+        <!--   跳过测试    -->
+        <skipTests>true</skipTests>
+        <hutool.version>5.8.7</hutool.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -27,30 +32,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-
-        <resources>
-            <!-- 加入如下配置，把jar包以资源形式打包进指定路径 -->
-            <resource>
-                <directory>${project.basedir}/lib</directory>
-                <targetPath>BOOT-INF/lib/</targetPath>
-                <includes>
-                    <include>**/*.jar</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <targetPath>BOOT-INF/classes/</targetPath>
-            </resource>
-        </resources>
+        <finalName>demo</finalName>
 
         <!-- 分离打包: jar和依赖合并打包 ，指定启动类 -->
         <plugins>
@@ -105,7 +97,7 @@
                             <overWriteIfNewer>true</overWriteIfNewer>
                             <excludeTransitive>false</excludeTransitive>
                             <stripVersion>false</stripVersion>
-                            <includeScope>runtime</includeScope>
+                            <includeScope>compile</includeScope>
                         </configuration>
                     </execution>
                 </executions>
