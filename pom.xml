@@ -38,6 +38,8 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hutool-all-5.8.7.jar</systemPath>
         </dependency>
     </dependencies>
 
