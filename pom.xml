@@ -19,6 +19,10 @@
         <!--   跳过测试    -->
         <skipTests>true</skipTests>
         <hutool.version>5.8.7</hutool.version>
+
+
+        <hutool.local.path>lib/hutool-all-5.8.7.jar</hutool.local.path>
+
     </properties>
 
     <dependencies>
@@ -39,7 +43,7 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/hutool-all-5.8.7.jar</systemPath>
+            <systemPath>${project.basedir}/${hutool.local.path}</systemPath>
         </dependency>
     </dependencies>
 
@@ -76,7 +80,7 @@
                         </manifest>
                         <manifestEntries>
                             <!--            这个位置要加本地system级别的jar                -->
-                            <Class-Path>./lib/</Class-Path>
+                            <Class-Path>${hutool.local.path} </Class-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>
